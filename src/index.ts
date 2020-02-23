@@ -38,6 +38,6 @@ export interface TermNode extends Node {
   not: boolean;
 }
 
-export function parse(query: string) {
+export function parse(query: string): QueryNode {
   return parser.parse(query);
 }
