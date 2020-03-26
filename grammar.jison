@@ -48,7 +48,7 @@ query
         value: [
           {
             connective: "AND",
-            term: $1
+            node: $1
           }
         ]
       };
@@ -61,7 +61,7 @@ query
           ...$1.value,
           {
             connective: "AND",
-            term: $3
+            node: $3
           }
         ]
       };
@@ -74,7 +74,7 @@ query
           ...$1.value,
           {
             connective: $3,
-            term: $5
+            node: $5
           }
         ]
       };

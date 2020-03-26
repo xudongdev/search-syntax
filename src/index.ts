@@ -26,7 +26,7 @@ export interface QueryNode extends Node {
   type: NodeType.QUERY;
   value: Array<{
     connective: Connective;
-    term: TermNode;
+    node: TermNode | QueryNode;
   }>;
 }
 
