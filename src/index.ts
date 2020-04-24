@@ -5,3 +5,6 @@ export function parse(query: string): QueryNode {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (parser as any).parse(query);
 }
+
+export * from "./enums";
+export * from "./interfaces";
