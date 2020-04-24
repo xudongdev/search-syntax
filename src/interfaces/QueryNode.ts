@@ -4,6 +4,5 @@ import { Node } from "./Node";
 
 export interface QueryNode extends Node {
   type: NodeType.QUERY;
-
-  children: Children[];
+  value: Children[];
 }
