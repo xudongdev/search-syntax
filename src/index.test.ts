@@ -1,6 +1,30 @@
 import { parse } from ".";
 
-test("number:123.45", () => {
+test("Empty query", () => {
+  expect(parse("")).toBe(null);
+  expect(parse(null)).toBe(null);
+  expect(parse(undefined)).toBe(null);
+});
+
+test("Removes leading and trailing whitespace", () => {
+  expect(parse("field:test ")).toMatchObject({
+    type: "query",
+    value: [
+      {
+        connective: "AND",
+        node: {
+          type: "term",
+          name: "field",
+          comparator: "EQ",
+          value: "test",
+          not: false,
+        },
+      },
+    ],
+  });
+});
+
+test("Decimal point", () => {
   expect(parse("number:123.45")).toMatchObject({
     type: "query",
     value: [
@@ -18,7 +42,7 @@ test("number:123.45", () => {
   });
 });
 
-test("number:>123.45", () => {
+test("GT", () => {
   expect(parse("number:>123.45")).toMatchObject({
     type: "query",
     value: [
@@ -36,7 +60,7 @@ test("number:>123.45", () => {
   });
 });
 
-test('name:"John Wick" AND enable:true', () => {
+test("AND", () => {
   expect(parse('name:"John Wick" AND enable:true')).toMatchObject({
     type: "query",
     value: [
@@ -64,7 +88,7 @@ test('name:"John Wick" AND enable:true', () => {
   });
 });
 
-test("name:John OR enable:true", () => {
+test("OR", () => {
   expect(parse("name:John OR enable:true")).toMatchObject({
     type: "query",
     value: [
@@ -92,7 +116,7 @@ test("name:John OR enable:true", () => {
   });
 });
 
-test('name:John OR (created_at:>="2020-01-01 00:00:00" AND created_at:<="2020-12-31 23:59:59")', () => {
+test("Subquery", () => {
   expect(
     parse(
       'name:John OR (created_at:>="2020-01-01 00:00:00" AND created_at:<="2020-12-31 23:59:59")'
