@@ -15,10 +15,10 @@ escapable                    ['"\+\,\(\)\>\<=\[\]]
 "OR"                                                return 'OR'
 '('                                                 return 'LPAREN'
 ')'                                                 return 'RPAREN'
-"<"                                                return 'LT'
-">"                                                return 'GT'
-"<="                                               return 'LE'
-">="                                               return 'GE'
+"<"                                                 return 'LT'
+"<="                                                return 'LE'
+">"                                                 return 'GT'
+">="                                                return 'GE'
 "null"                                              return "NULL"
 "true"                                              return "TRUE"
 "false"                                             return "FALSE"
@@ -122,14 +122,14 @@ connective
   ;
 
 comparator
-  : 'LT'
-    { $$ = "LT"; }
-  | 'GT'
-    { $$ = "GT"; }
-  | 'LE'
+  : 'LE'
     { $$ = "LE"; }
+  | 'LT'
+    { $$ = "LT"; }
   | 'GE'
     { $$ = "GE"; }
+  | 'GT'
+    { $$ = "GT"; }
   |
     { $$ = "EQ"; }
   ;

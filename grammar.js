@@ -106,10 +106,10 @@ var grammar = (function () {
       NOT: 14,
       AND: 15,
       OR: 16,
-      LT: 17,
-      GT: 18,
-      LE: 19,
-      GE: 20,
+      LE: 17,
+      GE: 18,
+      LT: 19,
+      GT: 20,
       TRUE: 21,
       FALSE: 22,
       NUMBER: 23,
@@ -128,10 +128,10 @@ var grammar = (function () {
       14: "NOT",
       15: "AND",
       16: "OR",
-      17: "LT",
-      18: "GT",
-      19: "LE",
-      20: "GE",
+      17: "LE",
+      18: "GE",
+      19: "LT",
+      20: "GT",
       21: "TRUE",
       22: "FALSE",
       23: "NUMBER",
@@ -253,16 +253,16 @@ var grammar = (function () {
           this.$ = "OR";
           break;
         case 11:
-          this.$ = "LT";
-          break;
-        case 12:
-          this.$ = "GT";
-          break;
-        case 13:
           this.$ = "LE";
           break;
-        case 14:
+        case 12:
           this.$ = "GE";
+          break;
+        case 13:
+          this.$ = "LT";
+          break;
+        case 14:
+          this.$ = "GT";
           break;
         case 15:
           this.$ = "EQ";
@@ -1003,10 +1003,10 @@ var grammar = (function () {
         /^(?:OR\b)/i,
         /^(?:\()/i,
         /^(?:\))/i,
-        /^(?:<)/i,
-        /^(?:>)/i,
         /^(?:<=)/i,
         /^(?:>=)/i,
+        /^(?:<)/i,
+        /^(?:>)/i,
         /^(?:null\b)/i,
         /^(?:true\b)/i,
         /^(?:false\b)/i,
