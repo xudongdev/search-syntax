@@ -84,9 +84,10 @@ var grammar = (function () {
     $V5 = [1, 10],
     $V6 = [1, 11],
     $V7 = [1, 12],
-    $V8 = [1, 14],
-    $V9 = [5, 7, 13],
-    $Va = [21, 22, 23, 24, 25];
+    $V8 = [1, 13],
+    $V9 = [1, 15],
+    $Va = [5, 7, 13],
+    $Vb = [21, 22, 23, 24, 25, 26];
   var parser = {
     trace: function trace() {},
     yy: {},
@@ -107,14 +108,15 @@ var grammar = (function () {
       AND: 15,
       OR: 16,
       LE: 17,
-      GE: 18,
-      LT: 19,
+      LT: 18,
+      GE: 19,
       GT: 20,
-      TRUE: 21,
-      FALSE: 22,
-      NUMBER: 23,
-      LITERAL: 24,
-      STRING: 25,
+      NULL: 21,
+      TRUE: 22,
+      FALSE: 23,
+      NUMBER: 24,
+      LITERAL: 25,
+      STRING: 26,
       $accept: 0,
       $end: 1,
     },
@@ -129,14 +131,15 @@ var grammar = (function () {
       15: "AND",
       16: "OR",
       17: "LE",
-      18: "GE",
-      19: "LT",
+      18: "LT",
+      19: "GE",
       20: "GT",
-      21: "TRUE",
-      22: "FALSE",
-      23: "NUMBER",
-      24: "LITERAL",
-      25: "STRING",
+      21: "NULL",
+      22: "TRUE",
+      23: "FALSE",
+      24: "NUMBER",
+      25: "LITERAL",
+      26: "STRING",
     },
     productions_: [
       0,
@@ -155,6 +158,7 @@ var grammar = (function () {
       [11, 1],
       [11, 1],
       [11, 0],
+      [9, 1],
       [9, 1],
       [9, 1],
       [9, 1],
@@ -256,10 +260,10 @@ var grammar = (function () {
           this.$ = "LE";
           break;
         case 12:
-          this.$ = "GE";
+          this.$ = "LT";
           break;
         case 13:
-          this.$ = "LT";
+          this.$ = "GE";
           break;
         case 14:
           this.$ = "GT";
@@ -268,18 +272,21 @@ var grammar = (function () {
           this.$ = "EQ";
           break;
         case 16:
-          this.$ = true;
+          this.$ = null;
           break;
         case 17:
-          this.$ = false;
+          this.$ = true;
           break;
         case 18:
-          this.$ = Number($$[$0]);
+          this.$ = false;
           break;
         case 19:
-          this.$ = $$[$0];
+          this.$ = Number($$[$0]);
           break;
         case 20:
+          this.$ = $$[$0];
+          break;
+        case 21:
           this.$ = $$[$0].replace(/^\"|\"$/g, "");
 
           break;
@@ -299,20 +306,21 @@ var grammar = (function () {
         23: $V5,
         24: $V6,
         25: $V7,
+        26: $V8,
       },
       { 1: [3] },
-      { 5: [1, 13], 7: $V8 },
-      o($V9, [2, 2]),
-      o($V9, [2, 5]),
-      o($Va, [2, 15], {
-        11: 15,
-        17: [1, 16],
-        18: [1, 17],
-        19: [1, 18],
-        20: [1, 19],
+      { 5: [1, 14], 7: $V9 },
+      o($Va, [2, 2]),
+      o($Va, [2, 5]),
+      o($Vb, [2, 15], {
+        11: 16,
+        17: [1, 17],
+        18: [1, 18],
+        19: [1, 19],
+        20: [1, 20],
       }),
       {
-        4: 20,
+        4: 21,
         6: 3,
         9: 4,
         10: $V0,
@@ -323,37 +331,40 @@ var grammar = (function () {
         23: $V5,
         24: $V6,
         25: $V7,
+        26: $V8,
       },
-      { 7: [1, 21] },
-      o($V9, [2, 16]),
-      o($V9, [2, 17]),
-      o($V9, [2, 18]),
-      o($V9, [2, 19]),
-      o($V9, [2, 20]),
+      { 7: [1, 22] },
+      o($Va, [2, 16]),
+      o($Va, [2, 17]),
+      o($Va, [2, 18]),
+      o($Va, [2, 19]),
+      o($Va, [2, 20]),
+      o($Va, [2, 21]),
       { 1: [2, 1] },
       {
-        6: 22,
-        8: 23,
+        6: 23,
+        8: 24,
         9: 4,
         10: $V0,
         12: $V1,
         14: $V2,
-        15: [1, 24],
-        16: [1, 25],
+        15: [1, 25],
+        16: [1, 26],
         21: $V3,
         22: $V4,
         23: $V5,
         24: $V6,
         25: $V7,
+        26: $V8,
       },
-      { 9: 26, 21: $V3, 22: $V4, 23: $V5, 24: $V6, 25: $V7 },
-      o($Va, [2, 11]),
-      o($Va, [2, 12]),
-      o($Va, [2, 13]),
-      o($Va, [2, 14]),
-      { 7: $V8, 13: [1, 27] },
+      { 9: 27, 21: $V3, 22: $V4, 23: $V5, 24: $V6, 25: $V7, 26: $V8 },
+      o($Vb, [2, 11]),
+      o($Vb, [2, 12]),
+      o($Vb, [2, 13]),
+      o($Vb, [2, 14]),
+      { 7: $V9, 13: [1, 28] },
       {
-        6: 28,
+        6: 29,
         9: 4,
         10: $V0,
         12: $V1,
@@ -363,16 +374,17 @@ var grammar = (function () {
         23: $V5,
         24: $V6,
         25: $V7,
+        26: $V8,
       },
-      o($V9, [2, 3]),
-      { 7: [1, 29] },
+      o($Va, [2, 3]),
+      { 7: [1, 30] },
       { 7: [2, 9] },
       { 7: [2, 10] },
-      o($V9, [2, 6]),
-      o($V9, [2, 7]),
-      o($V9, [2, 8]),
+      o($Va, [2, 6]),
+      o($Va, [2, 7]),
+      o($Va, [2, 8]),
       {
-        6: 30,
+        6: 31,
         9: 4,
         10: $V0,
         12: $V1,
@@ -382,10 +394,11 @@ var grammar = (function () {
         23: $V5,
         24: $V6,
         25: $V7,
+        26: $V8,
       },
-      o($V9, [2, 4]),
+      o($Va, [2, 4]),
     ],
-    defaultActions: { 13: [2, 1], 24: [2, 9], 25: [2, 10] },
+    defaultActions: { 14: [2, 1], 25: [2, 9], 26: [2, 10] },
     parseError: function parseError(str, hash) {
       if (hash.recoverable) {
         this.trace(str);
@@ -956,16 +969,16 @@ var grammar = (function () {
             return 13;
             break;
           case 6:
-            return 17;
-            break;
-          case 7:
             return 18;
             break;
+          case 7:
+            return 17;
+            break;
           case 8:
-            return 19;
+            return 20;
             break;
           case 9:
-            return 20;
+            return 19;
             break;
           case 10:
             return "NULL";
@@ -980,13 +993,13 @@ var grammar = (function () {
             return 10;
             break;
           case 14:
-            return 23;
+            return 24;
             break;
           case 15:
-            return 25;
+            return 26;
             break;
           case 16:
-            return 24;
+            return 25;
             break;
           case 17:
             return 5;
@@ -1003,10 +1016,10 @@ var grammar = (function () {
         /^(?:OR\b)/i,
         /^(?:\()/i,
         /^(?:\))/i,
-        /^(?:<=)/i,
-        /^(?:>=)/i,
         /^(?:<)/i,
+        /^(?:<=)/i,
         /^(?:>)/i,
+        /^(?:>=)/i,
         /^(?:null\b)/i,
         /^(?:true\b)/i,
         /^(?:false\b)/i,

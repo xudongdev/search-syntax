@@ -135,7 +135,9 @@ comparator
   ;
 
 value
-  : 'TRUE'
+  : 'NULL'
+    { $$ = null; }
+  | 'TRUE'
     { $$ = true; }
   | 'FALSE'
     { $$ = false; }
