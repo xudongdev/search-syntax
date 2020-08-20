@@ -19,7 +19,7 @@
   "scripts": {
     "generate": "jison grammar.jison",
     "build": "rm -rf dist && tsc",
-    "prepublish": "npm run build",
+    "prepublish": "npm run generate && npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

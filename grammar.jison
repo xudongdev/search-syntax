@@ -15,10 +15,10 @@ escapable                    ['"\+\,\(\)\>\<=\[\]]
 "OR"                                                return 'OR'
 '('                                                 return 'LPAREN'
 ')'                                                 return 'RPAREN'
-"<"                                                 return 'LT'
 "<="                                                return 'LE'
-">"                                                 return 'GT'
+"<"                                                 return 'LT'
 ">="                                                return 'GE'
+">"                                                 return 'GT'
 "null"                                              return "NULL"
 "true"                                              return "TRUE"
 "false"                                             return "FALSE"

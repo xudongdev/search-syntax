@@ -969,16 +969,16 @@ var grammar = (function () {
             return 13;
             break;
           case 6:
-            return 18;
-            break;
-          case 7:
             return 17;
             break;
+          case 7:
+            return 18;
+            break;
           case 8:
-            return 20;
+            return 19;
             break;
           case 9:
-            return 19;
+            return 20;
             break;
           case 10:
             return "NULL";
@@ -1016,10 +1016,10 @@ var grammar = (function () {
         /^(?:OR\b)/i,
         /^(?:\()/i,
         /^(?:\))/i,
-        /^(?:<)/i,
         /^(?:<=)/i,
-        /^(?:>)/i,
+        /^(?:<)/i,
         /^(?:>=)/i,
+        /^(?:>)/i,
         /^(?:null\b)/i,
         /^(?:true\b)/i,
         /^(?:false\b)/i,
