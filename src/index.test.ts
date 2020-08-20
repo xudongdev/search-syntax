@@ -6,6 +6,24 @@ test("Empty query", () => {
   expect(parse(undefined)).toBe(null);
 });
 
+test("Is not null", () => {
+  expect(parse("NOT field:NULL")).toMatchObject({
+    type: "query",
+    value: [
+      {
+        connective: "AND",
+        node: {
+          type: "term",
+          name: "field",
+          comparator: "EQ",
+          value: null,
+          not: true,
+        },
+      },
+    ],
+  });
+});
+
 test("Removes leading and trailing whitespace", () => {
   expect(parse("field:test ")).toMatchObject({
     type: "query",
